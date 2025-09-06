@@ -35,9 +35,19 @@ class ReadingLog(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     date = db.Column(db.Date, nullable=False)
     books_read = db.Column(db.Integer, nullable=False)
+    pages_read = db.Column(db.Integer, nullable=False)
     words_read = db.Column(db.Integer, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
 
     user = db.relationship("User', back_populates='reading_logs")
     books = db.relationship(
         "Book", backref="readinglog", lazy=True, cascade="all, delete-orphan")
+    
+class Book(db.Model):
+    __tablename__ = "books"
+
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String, nullable=False)
+    author = db.Column(db.String, nullable=True)
+    pages = db.Column(db.Integer, nullable=False)
+    words = db.Column(db.Integer, nullable=False)
