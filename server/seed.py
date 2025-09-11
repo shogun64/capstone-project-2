@@ -8,9 +8,9 @@ fake = Faker()
 
 with app.app_context():
     print("Deleting all data...")
-    User.query.delete()
-    ReadingLog.query.delete()
     Book.query.delete()
+    ReadingLog.query.delete()
+    User.query.delete()
 
     print("Creating Users...")
     users = []
@@ -50,12 +50,12 @@ with app.app_context():
         book = Book(title=title, author=author, full_pages=full_pages,
                     full_words=full_words, pages_read=pages_read,
                     words_read=words_read)
-        randlog = randint(1, 25)
+        randlog = randint(0, 24)
         book.reading_log = logs[randlog]
         logs[randlog].books_read += 1
         logs[randlog].pages_read += pages_read
         logs[randlog].words_read += words_read
-        books.append(log)
+        books.append(book)
         
     db.session.add_all(books)
 

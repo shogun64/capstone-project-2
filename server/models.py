@@ -41,7 +41,7 @@ class ReadingLog(db.Model):
 
     user = db.relationship("User", back_populates="reading_logs")
     books = db.relationship(
-        "Book", backref="readinglog", lazy=True, cascade="all, delete-orphan")
+        "Book", back_populates="reading_log", lazy=True, cascade="all, delete-orphan")
     
 class Book(db.Model):
     __tablename__ = "books"
