@@ -1,9 +1,11 @@
 import React from "react";
 import styles from "../styles/Home.module.css";
+import NavBar from "../components/NavBar"
 
-function Home() {
+function Home({ user, setUser }) {
   return (
-    <div className={styles.home}>
+    <div>
+        <NavBar user={user} setUser={setUser} />
     </div>
   )
 }
