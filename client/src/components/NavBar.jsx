@@ -9,7 +9,7 @@ function NavBar({ user, setUser }) {
         let data = null
         let error = null
         try {
-            const response = await fetch('http://127.0.0.1:5555/logout', {
+            const response = await fetch('/api/logout', {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json"
@@ -33,9 +33,14 @@ function NavBar({ user, setUser }) {
   }
 
   return (
-    <div className={styles.navbar}>
-      <button onClick={handleLogout} className='logout-button'>Logout</button>
-    </div>
+    <nav className={styles.navbar}>
+      <div className={styles.navlinks}>
+        <NavLink to="/" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>Home</NavLink>
+        <NavLink to="/logs" className={({ isActive }) => isActive ? "navlink active" : "navlink"}>Reading Logs</NavLink>
+        <NavLink to="/login" className={({ isActive }) => isActive ? "navlink active" : "navlink"}>Login/Signup</NavLink>
+      </div>
+      <button onClick={handleLogout} className={styles.logout}>Logout</button>
+    </nav>
   )
 }
 

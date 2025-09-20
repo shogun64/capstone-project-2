@@ -1,0 +1,40 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 100px;
+  align-items: center;
+  margin-bottom: 20px;
+  background-color: #0a410a;
+  padding: 20px;
+}
+
+.navlinks {
+  display: flex;
+  gap: 100px;
+}
+
+.navlink {
+  text-decoration: none;
+  padding: 7px;
+  border-radius: 5px;
+  color: blue;
+  font-size: 20px;
+}
+
+.navlink.active {
+  border-bottom: 3px solid #2E4D36;
+  font-weight: bold;
+  background-color: #DCEFE0;
+  padding: 7px 7px
+}
+
+.logout {
+  background-color: lightcoral;
+  color: black;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.logout:hover {
+  background-color:	red;
+}
