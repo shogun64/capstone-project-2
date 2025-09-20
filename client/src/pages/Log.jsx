@@ -1,9 +1,11 @@
 import React from "react";
+import NavBar from "../components/NavBar"
 import styles from "../styles/Log.module.css";
 
-function Log() {
+function Log({ user, setUser }) {
   return (
-    <div className={styles.log}>
+    <div>
+      <NavBar user={user} setUser={setUser} />
     </div>
   )
 }
