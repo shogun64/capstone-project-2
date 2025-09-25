@@ -41,15 +41,15 @@ function SignupForm({ onLogin }) {
         <div>
             <form className='signup-form' onSubmit={handleSubmit}>
                 <div>
-                    <label htmlFor='username'>Username:</label>
+                    <label htmlFor='username'>Username: </label>
                     <input type='text' id='username' value={username} onChange={(e) => setUsername(e.target.value)}/>
                 </div>
                 <div>
-                    <label htmlFor='password'>Password:</label>
+                    <label htmlFor='password'>Password: </label>
                     <input type='password' id='password' value={password} onChange={(e) => setPassword(e.target.value)}/>
                 </div>
                 <div>
-                    <label htmlFor='password-confirmation'>Confirm password:</label>
+                    <label htmlFor='password-confirmation'>Confirm password: </label>
                     <input type='password' id='password-confirmation' value={password_confirmation} onChange={(e) => 
                         setPassword_Confirmation(e.target.value)}/>
                 </div>

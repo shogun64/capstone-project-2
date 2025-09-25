@@ -1,4 +1,5 @@
 import React from "react";
+import BookCard from "../components/BookCard"
 import styles from "../styles/BookList.module.css";
 
 function BookList({bookList}) {
