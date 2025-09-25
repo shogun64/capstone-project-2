@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Logs from "./pages/Logs";
 import Log from "./pages/Log";
 import Login from "./pages/Login";
+import NewLog from "./pages/NewLog";
 import './App.css'
 
 function App() {
@@ -22,8 +23,9 @@ function App() {
       <Routes>
           <Route path="/" element={<Home user={user} setUser={setUser}/>} />
           <Route path="/login" element={<Login user={user} onLogin={setUser} />} />
-          <Route path="/logs" element={<Logs user={user} setUser={setUser}/>}>
+          <Route path="/logs">
             <Route index element={<Logs user={user} setUser={setUser}/>} />
+            <Route path="new" element={<NewLog user={user} setUser={setUser}/>} />
             <Route path=":logid" element={<Log user={user} setUser={setUser}/>} />
           </Route>
         </Routes>
