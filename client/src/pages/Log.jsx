@@ -21,13 +21,18 @@ function Log({ user, setUser }) {
   return (
     <div className={styles.log}>
       <NavBar user={user} setUser={setUser} />
-      <h2>{data.date}</h2>
+      <div className={styles.logheader}>
+        <div className={styles.logdetails}>
+          <h2>{data.date}</h2>
       <p>Books read: {data.books_read}</p>
       <p>Pages read: {data.pages_read}</p>
       <p>Words read: {data.words_read}</p>
+        </div>
+      <BookForm id={logid}/>
+      </div>
       <BookList bookList={data.books}></BookList>
-      <BookForm />
     </div>
+    
   )
 }
 

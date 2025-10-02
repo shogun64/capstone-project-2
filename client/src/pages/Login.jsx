@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import { useNavigate } from 'react-router-dom'
 import NavBar from "../components/NavBar"
 import LoginForm from "../components/LoginForm.jsx";
 import SignupForm from "../components/SignupForm.jsx";
@@ -8,6 +7,10 @@ import styles from "../styles/Login.module.css";
 function Login({ user, onLogin }) {
     const [showLogin, setShowLogin] = useState(true);
 
+    if (user) return (<div className={styles.login}>
+        <NavBar/>
+        <h1>You are already logged in.</h1>
+        </div>)
     return (
         showLogin ? (<div className={styles.login}>
             <NavBar/>
