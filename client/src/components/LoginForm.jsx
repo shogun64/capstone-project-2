@@ -33,7 +33,7 @@ function LoginForm({ onLogin }) {
         event.preventDefault()
         const { data, error } = login()
         if (error) return <p className={styles.error}>Error: {error}</p>;
-        navigate('/')
+        else navigate('/')
     }
 
     return (

@@ -37,6 +37,7 @@ function NavBar({ user, setUser }) {
       <div className={styles.navlinks}>
         <NavLink to="/" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>Home</NavLink>
         <NavLink to="/logs" className={({ isActive }) => isActive ? "navlink active" : "navlink"}>Reading Logs</NavLink>
+        <NavLink to="/logs/new" className={({ isActive }) => isActive ? "navlink active" : "navlink"}>Post New Log</NavLink>
         <NavLink to="/login" className={({ isActive }) => isActive ? "navlink active" : "navlink"}>Login/Signup</NavLink>
       </div>
       <button onClick={handleLogout} className={styles.logout}>Logout</button>

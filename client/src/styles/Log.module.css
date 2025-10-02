@@ -1,0 +1,15 @@
+.log {
+    text-align: center;
+}
+
+.logheader {
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    
+}
+
+.logdetails {
+    text-align: center;
+}

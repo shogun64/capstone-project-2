@@ -5,7 +5,7 @@ function SearchBar({search, setSearch}) {
   return (
     <div className={styles.searchBar}>
         <input
-        type="text" placeholder="Search" value={search} onChange={(e) => setSearch(e.target.value)}/>
+        type="date" placeholder="Search" value={search} onChange={(e) => setSearch(e.target.value)}/>
     </div>
   )
 }
