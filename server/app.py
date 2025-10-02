@@ -1,6 +1,7 @@
 from flask import request, session
 from flask_restful import Resource
 from sqlalchemy.exc import IntegrityError
+import datetime
 from config import app, db, api
 from models import User, ReadingLog, Book
 from schemas import UserSchema, ReadingLogSchema, BookSchema
@@ -68,7 +69,6 @@ class Logs(Resource):
         user_id = session.get('user_id')
         if not user_id:
             return {'error': 'Unauthorized'}, 401
-        
         page = request.args.get("page", 1, type=int)
         per_page = request.args.get("per_page", 5, type=int)
         pagination = ReadingLog.query.filter_by(user_id=user_id).paginate(
@@ -80,7 +80,7 @@ class Logs(Resource):
             "per_page": per_page,
             "total": pagination.total,
             "total_pages": pagination.pages,
-            "moods": [ReadingLogSchema().dump(log) for log in logs]
+            "logs": [ReadingLogSchema().dump(log) for log in logs]
         }, 200
     def post(self):
         user_id = session.get('user_id')
@@ -90,15 +90,17 @@ class Logs(Resource):
         data = request.get_json()
 
         date = data.get('date')
-        books_read = data.get('books_read')
-        pages_read = data.get('pages_read')
-        words_read = data.get('words_read')
 
-        if not date or not books_read or not pages_read or not words_read:
+        truedate = datetime.datetime(int(date[0:4]), int(date[5:7]), int(date[8:10]))
+        books_read = int(data.get('books_read'))
+        pages_read = int(data.get('pages_read'))
+        words_read = int(data.get('words_read'))
+
+        if not truedate or not books_read or not pages_read or not words_read:
             return {'errors': 'Missing data'}, 422
         
         reading_log = ReadingLog(
-            date=date,
+            date=truedate,
             books_read=books_read,
             pages_read=pages_read,
             words_read=words_read,
@@ -106,7 +108,7 @@ class Logs(Resource):
         )
 
         try:
-            db.session.add(ReadingLog)
+            db.session.add(reading_log)
             db.session.commit()
         except Exception as e:
             db.session.rollback()
@@ -132,10 +134,10 @@ class Log(Resource):
 
         title = data.get('title')
         author = data.get('author')
-        full_pages = data.get('full_pages')
-        full_words = data.get('full_words')
-        pages_read = data.get('pages_read')
-        words_read = data.get('words_read')
+        full_pages = int(data.get('full_pages'))
+        full_words = int(data.get('full_words'))
+        pages_read = int(data.get('pages_read'))
+        words_read = int(data.get('words_read'))
 
         if not title or not author or not full_pages or not full_words or not pages_read or not words_read:
             return {'errors': 'Missing data'}, 422
@@ -157,7 +159,7 @@ class Log(Resource):
         reading_log.words_read += words_read
 
         try:
-            db.session.add(Book)
+            db.session.add(book)
             db.session.commit()
         except Exception as e:
             db.session.rollback()
