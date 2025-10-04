@@ -20,5 +20,7 @@ and finally, flask run to start the backend.
 (/login) The login/signup page.
 
 (/logs) A page that shows all the reading logs for the given user.
-  (/logs/new) A page for creating a new log.
-  (/logs/{logid}) A page for each log, displaying the books associated with it, and a form for adding a new book to that log.
+
+(/logs/new) A page for creating a new log.
+
+(/logs/{logid}) A page for each log, displaying the books associated with it, and a form for adding a new book to that log.
