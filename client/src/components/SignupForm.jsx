@@ -38,7 +38,7 @@ function SignupForm({ onLogin }) {
     } 
 
     return (
-        <div>
+        <div className={styles.signupform}>
             <form className='signup-form' onSubmit={handleSubmit}>
                 <div>
                     <label htmlFor='username'>Username: </label>
