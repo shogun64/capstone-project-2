@@ -70,7 +70,7 @@ class Logs(Resource):
         if not user_id:
             return {'error': 'Unauthorized'}, 401
         page = request.args.get("page", 1, type=int)
-        per_page = request.args.get("per_page", 5, type=int)
+        per_page = request.args.get("per_page", 9, type=int)
         pagination = ReadingLog.query.filter_by(user_id=user_id).paginate(
             page=page, per_page=per_page, error_out=False)
         logs = pagination.items

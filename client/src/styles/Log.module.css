@@ -12,4 +12,7 @@
 
 .logdetails {
     text-align: center;
+    background-color: #6c0e88;
+    padding: 0px 10px;
+    border-radius: 8px;
 }

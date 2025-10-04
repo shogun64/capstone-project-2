@@ -37,7 +37,7 @@ function LoginForm({ onLogin }) {
     }
 
     return (
-        <div>
+        <div className={styles.loginform}>
             <form className='login-form' onSubmit={handleSubmit}>
                 <div>
                     <label htmlFor='username'>Username: </label>
