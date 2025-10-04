@@ -1,12 +1,24 @@
-# React + Vite
+# Reading Log Database
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This full-stack project creates a reading log database for use by people who wish to keep track of their reading progress for goals.
+This includes both keeping track of how much you've read on any given day, and how much you've read of individual books.
 
-Currently, two official plugins are available:
+## Setup
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+After cloning the git repository:
 
-## Expanding the ESLint configuration
+Frontend: cd client, then npm install inside to install all dependencies, and npm run dev to open the project.
+Backend: cd server, then pip install -r requirements.txt, pipenv shell, and the following:
+  export FLASK_RUN_PORT=5555
+  export FLASK_APP=app.py
+and finally, flask run to start the backend.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Endpoints
+
+(/) The home page, which offers a brief introduction.
+
+(/login) The login/signup page.
+
+(/logs) A page that shows all the reading logs for the given user.
+  (/logs/new) A page for creating a new log.
+  (/logs/{logid}) A page for each log, displaying the books associated with it, and a form for adding a new book to that log.
